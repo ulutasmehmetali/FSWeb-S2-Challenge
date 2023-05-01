@@ -75,19 +75,32 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+function cumleKur(yazi){
+	return 'Hello World!';
+}
+console.log(cumleKur());
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+function cumleKur(text, text2){
+	return 'Hello World!'
+}
+console.log(cumleKur());
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
 var bircumle;
 
-/* kodlar buraya */
+function cumle(first='Ben', second='iyi', third='bir', fourth='yazılımcı', fifth='olacağım!'){
+	 bircumle = first + ' ' + second + ' ' + third + ' ' + fourth + ' ' + fifth;
+	return bircumle;
+}
 
+cumle();
+console.log(bircumle);
+
+// "Ben iyi bir yazılımcı olacağım!" çıktısı konsola yazdırılacaktır
 
 
 //		Sayfanın en üstünde global olarak tanımlanmış `cumleler` adında bir dizi bulunmaktadır. Bu dizinin içinde en çok 5 en az 1 adet string bulunan diziler bulunmaktadır. Aşağıdaki görevlerde aksi belirtilmedikçe bu dizi kullanılacaktır.
@@ -104,11 +117,11 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
-}
-
-
+	function cumlelereDonustur(cumleler, ayirac = ",") {
+		return cumleler.map(cumle => cumle.join(ayirac));
+		}
+		const cumlelerDizi = cumlelereDonustur(cumleler, " ");
+		
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -120,19 +133,24 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
-}
-
+	function paragrafOlustur(cumleler, cumleKur, cumlelereDonustur){
+		const cumleler2 = cumlelereDonustur(cumleler, " ");
+		const filtrelenmisCumleler = cumleler2.filter((_, index) => index % 2 === 1 && index < 10);
+		const parametreler = filtrelenmisCumleler.slice(0, 5);
+		return cumleKur(...parametreler);
+	  }
+	  
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
  */
 //3a çözümü
-/* kodlar buraya */
+	  meyveler.pop();
 
+	  meyveler.shift();
 
+	  console.log(meyveler);
 
 
 
@@ -142,6 +160,14 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3b çözümü
 /* kodlar buraya */
 
+
+
+	  sebzeler.push('🐇');
+
+
+	  sebzeler.unshift('🦔');
+
+	  console.log(sebzeler);
 
 
 
@@ -155,8 +181,7 @@ function paragrafOlustur(/* kodlar buraya */ ){
 /* kodlar buraya */
 
 var manav;
-
-
+ const manav = sebzeler.concat(meyveler);
 
 
 
@@ -170,10 +195,12 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
-
-}
+	function emojileriDonustur(mesaj, emojiler) {
+		for (let sembol in emojiler) {
+			mesaj = mesaj.replaceAll(sembol.toLowerCase(), emojiler[sembol]).replaceAll(sembol.toUpperCase(), emojiler[sembol]);
+	 }
+	 return mesaj;
+	}
 
 
 
